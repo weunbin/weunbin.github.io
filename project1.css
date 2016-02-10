@@ -1,6 +1,6 @@
 
 #canvas{
-    background-color: white
+    background-color: white;
     position: absolute;
     border: 1px solid #000;
     margin:auto;
@@ -12,7 +12,6 @@
 #banner{
     background-image: url("assets/images/banner.png");
     background-size: 100% 100%;
-    position: fixed;
     background-position: center;
     background-repeat:no-repeat;
     top: 10px;
