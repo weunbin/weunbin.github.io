@@ -63,15 +63,13 @@
         populate: function(val,cols,rows){
             this.numOfCols = cols;
             this.numOfRows = rows;
-            
             this.map = [];
             //goes through number of rows and cols to populate cells
             for(var i = 0; i < cols; i++){
                 this.map.push([]);
-                for(var j=0; j < rows; j++){
+                for(var j=0; j < rows; j++)
                     //append default value to map
                     this.map[i].push(val);
-                }
             }
         },
         
@@ -79,6 +77,7 @@
         get: function(xpos,ypos){ 
             return this.map[xpos][ypos];
         },
+        
         //set function to set the val at certain position in x and y
         set: function(val,xpos ,ypos){
             this.map[xpos][ypos] = val;
@@ -89,14 +88,12 @@
     function setCoin() {
         var defaultCoin = [];
         //goes through loop of cols and rows
-        for(var x =0; x < world.numOfCols; x++){
-            for(var y=0; y < world.numOfRows; y++){
-                //if theres an empty cell push a coin in that position
-                if (world.get(x,y) === EMPTY) {
+        for(var x =0; x < world.numOfCols; x++)
+            for(var y=0; y < world.numOfRows; y++)
+                //if theres an empty cell push a default coin in that position
+                if (world.get(x,y) === EMPTY) 
+                    //checks which random positions the coin can be set
                     defaultCoin.push({x:x,y:y});
-                }
-            }
-        }
         //get random x and y values
         var coinPos = defaultCoin[Math.floor(Math.random()*defaultCoin.length)];
         //place the coin in that random position x and y
@@ -106,14 +103,12 @@
     function setPolice() {
         var defaultPolice = [];
         //goes through loop of cols and rows
-        for(var x =0; x < world.numOfCols; x++){
-            for(var y=0; y < world.numOfRows; y++){
-                //if theres an empty cell push a police in that position
-                if (world.get(x,y) === EMPTY) {
+        for(var x =0; x < world.numOfCols; x++)
+            for(var y=0; y < world.numOfRows; y++)
+                //if theres an empty cell push a default police in that position
+                if (world.get(x,y) === EMPTY)
+                    //checks which random positions the police can be set
                     defaultPolice.push({x:x,y:y});
-                }
-            }
-        }
         //get random x and y values
         var policePos = defaultPolice[Math.floor(Math.random()*defaultPolice.length)];
          //place the police in that random position x and y
@@ -125,7 +120,7 @@
         canvas = document.getElementById('canvas');
         context = canvas.getContext('2d');
         
-        //set the interval to 10
+        //set the interval to 10 fps
         interval = 10;
 
         //event listeners for key presses
@@ -214,7 +209,7 @@
             robber.direction = DOWN;
         }
         
-        //every 10 intervals
+        //every 10 interval fps
         if(interval % 10 == 0){
             var updateX = robber.prevPosition.x;
             var updateY = robber.prevPosition.y;
@@ -251,7 +246,9 @@
             //check boundaries
             if(updateX < 0 || updateX > world.numOfCols-1){
                 return gameover();
-            }else if(updateY> world.numOfRows-1 || updateY < 0 ){
+            }else if(updateY > world.numOfRows-1 || updateY < 0 ){
+                return gameover();
+            }else if(world.get(updateX,updateY) === ROBBER){
                 return gameover();
             }
             
