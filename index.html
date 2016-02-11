@@ -40,13 +40,7 @@
         direction: null,
         prevPosition: null,
         currentPos: null,
-        
-        //initializing the robber function
-        init: function(dir,xpos,ypos){
-            this.currentPos = [];
-            this.direction = dir;
-            this.addSection(xpos,ypos);
-        },
+
         addSection: function(xpos,ypos){
             this.currentPos.unshift({x:xpos,y:ypos});
             this.prevPosition = this.currentPos[0];
@@ -58,20 +52,6 @@
         map: null,
         numOfCols: null,
         numOfRows: null,
-        
-        //populates the cells with default values
-        populate: function(val,cols,rows){
-            this.numOfCols = cols;
-            this.numOfRows = rows;
-            this.map = [];
-            //goes through number of rows and cols to populate cells
-            for(var i = 0; i < cols; i++){
-                this.map.push([]);
-                for(var j=0; j < rows; j++)
-                    //append default value to map
-                    this.map[i].push(val);
-            }
-        },
         
         //gets the value at the postion x and y
         get: function(xpos,ypos){ 
@@ -135,12 +115,25 @@
     //initializes the game
     function gameStart() {
         //populate the world with empty values for every col and row
-        world.populate(EMPTY, colums, rows);
+        world.numOfCols = colums;
+        world.numOfRows = rows;
+        world.map = [];
+        for(var i = 0; i < colums; i++){
+                world.map.push([]);
+                for(var j=0; j < rows; j++){
+                    //append default value to map
+                    world.map[i].push(EMPTY);
+                }
+        }
         //set starting pos of the robber
         var startingPos = {x:15, y:15};
         world.set(ROBBER, startingPos.x,startingPos.y);
         //set robbers initial direction to up
-        robber.init(UP, startingPos.x,startingPos.y);
+        //set robbers direction to start from up
+        //add the first section of the robber
+        robber.currentPos = [];
+        robber.direction = UP;
+        robber.addSection(startingPos.x,startingPos.y);
         //sets a new coin and police in random places on the world
         setCoin();
         setPolice();
