@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Weun William Son</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Personal Website">
+        <meta name="author" content="Weun William Son" />
+        <meta name="keywords" content="Weun William Son" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- Bootstrap CSS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel='shortcut icon' href='images/favicon.png' type='image/x-icon'/ >
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet">
+        <script>
+            $(function() {
+                $('a[href*="#"]:not([href="#"])').click(function() {
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                        if (target.length) {
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="page-wrapper">
+            <!-- Header -->
+
+            <nav class="navbar navbar-fixed-top navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="#me"><img id="ws" src="images/ws.png"></a>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#about">About Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="images/William_Resume.pdf">Resumé</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="me">
+                <img id="rick" src="images/rick.png"> 
+                <p id="william">William Weun Son</p>
+                <hr class="featurette-divider">
+                <p id="developer">Software Developer</p>
+            </div>
+            <div id="about" class="container marketing">
+                <p id="aboutme">Hello, World!</p>
+                <p id="info">My name is William Weun Son. I am a recent graduate at the University of Georgia <br> with a 
+                    Bachelor of Science degree in Computer Science. Write more stuff about myself blah blah blah  </p>
+                <a class="btn btn-outline-info btn-lg" href="images/William_Resume.pdf" role="button">View Resumé</a>
+                <hr class="featurette-divider">
+            </div>
+            <div id="portfolio">
+                <p id="portfoliotext">Portfolio</p>
+                <div class="container">
+                    <div class="card-deck-wrapper">
+                        <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top" src="holder.js/100px280/thumb" alt="Card image cap">
+                                <div class="card-block">
+                                    <h4 class="card-title">Robert's Heist</h4>
+                                    <p class="card-text"></p>
+                                    <p><a class="btn btn-info" href="https://github.com/weunbin/CS4070/tree/master/project1" role="button">Source Code</a></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top" src="holder.js/100px280/thumb" alt="Card image cap">
+                                <div class="card-block">
+                                    <h4 class="card-title">Life of a College Student</h4>
+                                    <p class="card-text"></p>
+                                    <p><a class="btn btn-info" href="#" role="button">Source Code</a></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top" src="holder.js/100px280/thumb" alt="Card image cap">
+                                <div class="card-block">
+                                    <h4 class="card-title">NFL Fantasy Helper</h4>
+                                    <p class="card-text"></p>
+                                    <p><a class="btn btn-info" href="#" role="button">Source Code</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contact">
+                <p id="contacttext">Contact Me</p>
+                <small class="form-text text-muted">I am current looking for a full-time job and I am also open to internships. </small>
+                <hr class="featurette-divider">
+                <div id="sendemail">
+                    <form role="form" action="php/contact.php" method="post">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject">
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Message</label>
+                            <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+                            
+                        </div>
+                        <button id="submit" type="submit" class="btn btn-primary">Send Email!</button>
+                        
+                    </form>
+                    <hr class="featurette-divider">
+                    <a class="btn btn-default btn-circle btn-sm" href="https://github.com/weunbin" role="button"><i class="fa fa-github fa-4x" aria-hidden="true"></i><br>github.com/weunbin</a>
+                    <a class="btn btn-default btn-circle btn-sm" href="mailto:weunbin@outlook.com" role="button"><i class="fa fa-envelope fa-4x" aria-hidden="true"></i><br>weunbin@outlook.com</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
+
